@@ -50,6 +50,7 @@ router.post("/register", async (req, res) => {
 //     }
 // })
 
+//manual transaction
 router.post("/transaction1", async (req, res) => {
   const session = await mongoose.startSession();
   const transactionoption = {
@@ -89,6 +90,7 @@ router.post("/transaction1", async (req, res) => {
     return res.status(500).send({ error: error.message });
   }
 });
+
 // automatic transaction
 router.post("/transaction2", async (req, res) => {
   const session = await mongoose.startSession();
