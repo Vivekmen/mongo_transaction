@@ -142,14 +142,14 @@ router.post("/transaction3", async (req, res) => {
 
     // await Passbook.create([{iUserId,iTransactionId:req.body.walletId,imoneyrecieverId:req.body.recieverId,nbalance:}])
     await session1.commitTransaction();
-    await session2.commitTransaction();
     session1.endSession();
+    await session2.commitTransaction();
     session2.endSession();
     return res.status(200).send({ message: "Transaction Sucessfull" });
   } catch (error) {
     await session1.abortTransaction();
-    await session2.abortTransaction();
     session1.endSession();
+    await session2.abortTransaction();
     session2.endSession();
     return res.status(500).send({ error: error.message });
   }
