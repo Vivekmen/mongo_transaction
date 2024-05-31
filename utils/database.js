@@ -5,3 +5,4 @@ module.exports=function Databaseconnect(){mongoose.connect("mongodb+srv://vivekm
          .then(()=>console.log("Data base Connected"))
          .catch((err)=>console.log("Mongo error",err));
 }
+
